@@ -1,0 +1,321 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Portofolio F&amp;B</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Mono:wght@400;500&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: satu kolom 880px. Hero berisi perkenalan di kiri dan "tiket pesanan" ringkas di kanan; menu yang pernah ditangani ditulis seperti papan menu. */
+:root {
+  --bg: #F2F5F1;
+  --surface: #FFFFFF;
+  --ink: #14241E;
+  --muted: #556259;
+  --line: #CFD8CE;
+  --accent: #1B6B50;
+  --accent-ink: #FFFFFF;
+  --hi: #F2B632;
+  --hi-ink: #14241E;
+  --f-display: 'Bricolage Grotesque', 'Segoe UI', system-ui, sans-serif;
+  --f-body: 'Figtree', 'Segoe UI', system-ui, sans-serif;
+  --f-mono: 'DM Mono', ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1A16;
+    --surface: #16251F;
+    --ink: #E8EFE9;
+    --muted: #9BAAA1;
+    --line: #2C3D35;
+    --accent: #5FCFA0;
+    --accent-ink: #0F1A16;
+    --hi: #F2B632;
+    --hi-ink: #14241E;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1A16;
+  --surface: #16251F;
+  --ink: #E8EFE9;
+  --muted: #9BAAA1;
+  --line: #2C3D35;
+  --accent: #5FCFA0;
+  --accent-ink: #0F1A16;
+  --hi: #F2B632;
+  --hi-ink: #14241E;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--f-body);
+  font-size: 16px;
+  line-height: 1.6;
+  padding-block: 0 56px;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+.wrap { max-width: 880px; margin: 0 auto; }
+h1, h2, h3, p, ul { margin: 0; }
+ul { padding: 0; list-style: none; }
+h1, h2, h3 { font-family: var(--f-display); text-wrap: balance; line-height: 1.1; }
+a { color: var(--accent); }
+:focus-visible { outline: 3px solid var(--hi); outline-offset: 2px; border-radius: 4px; }
+
+.label {
+  font-family: var(--f-mono);
+  font-size: 12px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+  gap: 40px;
+  align-items: start;
+  padding-block: 56px 48px;
+}
+.hero h1 { font-size: clamp(2.3rem, 6.5vw, 3.6rem); font-weight: 800; letter-spacing: -0.02em; margin-top: 14px; }
+.hero .role { font-family: var(--f-display); font-size: 1.25rem; font-weight: 500; color: var(--accent); margin-top: 10px; }
+.hero .intro { margin-top: 20px; max-width: 54ch; }
+.actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
+.btn {
+  font: 600 15px/1 var(--f-body);
+  padding: 13px 20px;
+  border-radius: 8px;
+  border: 1.5px solid var(--accent);
+  background: var(--accent);
+  color: var(--accent-ink);
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn.ghost { background: transparent; color: var(--accent); }
+.btn:hover { filter: brightness(1.08); }
+
+/* Tiket pesanan */
+.ticket {
+  background: var(--surface);
+  border: 1.5px dashed var(--line);
+  border-radius: 6px;
+  padding: 22px 22px 20px;
+  position: relative;
+}
+.ticket::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto 0;
+  height: 6px;
+  background: var(--hi);
+  border-radius: 6px 6px 0 0;
+}
+.ticket .label { display: block; margin-bottom: 14px; }
+.ticket dl { margin: 0; display: grid; gap: 0; }
+.ticket .row {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 11px;
+  border-top: 1px dashed var(--line);
+}
+.ticket dt { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); padding-top: 3px; flex: none; }
+.ticket dd { margin: 0; text-align: right; font-weight: 600; min-width: 0; }
+
+/* Bagian */
+section { padding-block: 40px; border-top: 1.5px solid var(--ink); }
+section > header { display: flex; align-items: baseline; justify-content: space-between; flex-wrap: wrap; gap: 6px 16px; margin-bottom: 26px; }
+section h2 { font-size: 1.75rem; font-weight: 700; letter-spacing: -0.01em; }
+
+/* Pengalaman */
+.job { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 8px 32px; }
+.job .when { font-family: var(--f-mono); font-size: 13px; color: var(--muted); padding-top: 4px; }
+.job h3 { font-size: 1.3rem; font-weight: 700; }
+.job .where { color: var(--accent); font-weight: 600; margin-top: 2px; }
+.job ul { margin-top: 12px; display: grid; gap: 8px; }
+.job li, .skills li { padding-left: 18px; position: relative; }
+.job li::before, .skills li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 2px; background: var(--hi); }
+
+/* Papan menu */
+.board { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 24px 26px; max-width: 560px; }
+.board h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; }
+.board li { display: flex; align-items: baseline; gap: 8px; padding-block: 6px; }
+.board .name { min-width: 0; font-weight: 500; }
+.board .dots { flex: 1; min-width: 12px; border-bottom: 2px dotted var(--line); transform: translateY(-4px); }
+.board .kind { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--muted); white-space: nowrap; }
+.board-note { color: var(--muted); font-size: 14px; margin-top: 12px; }
+
+/* Keahlian */
+.skills-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 48px; }
+.skills-grid h3 { font-size: 1.05rem; font-weight: 700; color: var(--accent); margin-bottom: 10px; }
+.skills { display: grid; gap: 8px; }
+
+/* Pendidikan */
+.edu { display: grid; grid-template-columns: 170px minmax(0, 1fr); gap: 8px 32px; }
+.edu .when { font-family: var(--f-mono); font-size: 13px; color: var(--muted); padding-top: 4px; }
+.edu h3 { font-size: 1.3rem; font-weight: 700; }
+.edu .where { color: var(--accent); font-weight: 600; margin-top: 2px; }
+.edu ul { margin-top: 12px; display: grid; gap: 8px; }
+.edu li { padding-left: 18px; position: relative; }
+.edu li::before { content: ""; position: absolute; left: 0; top: 0.72em; width: 8px; height: 2px; background: var(--hi); }
+
+/* Kontak */
+.contact { display: grid; gap: 12px; max-width: 540px; }
+.copy-row { display: flex; align-items: center; gap: 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 12px 14px; }
+.copy-row .k { font-family: var(--f-mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); width: 74px; flex: none; }
+.copy-row .v { flex: 1; min-width: 0; overflow-wrap: anywhere; font-weight: 500; }
+.copy-row button { font: 600 13px var(--f-body); background: transparent; color: var(--accent); border: 1.5px solid var(--accent); border-radius: 6px; padding: 7px 12px; cursor: pointer; flex: none; }
+.foot { margin-top: 28px; color: var(--muted); font-size: 14px; }
+
+@media (max-width: 720px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 32px; padding-block: 36px 32px; }
+  .skills-grid { grid-template-columns: minmax(0, 1fr); }
+  .job, .edu { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .job .when, .edu .when { order: -1; padding-top: 0; }
+  .board { padding: 20px 18px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn, .copy-row button { transition: filter .15s; }
+}
+</style>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div>
+      <span class="label">Lamaran Magang · Food &amp; Beverage</span>
+      <h1>Suliwa Yudha Adinata</h1>
+      <p class="role">Cook / Crew Dapur · Fresh Graduate</p>
+      <p class="intro">Fresh graduate yang tertarik pada dunia kuliner, dari mengolah bahan, mengembangkan menu, sampai menyajikan hidangan. Pernah membantu operasional katering dan ingin membangun karier di dapur F&amp;B dengan teliti, kreatif, dan siap bekerja sama dalam tim.</p>
+      <div class="actions">
+        <a class="btn" href="https://wa.me/6285763906378" target="_blank" rel="noopener">Chat WhatsApp</a>
+        <a class="btn ghost" href="#pengalaman">Lihat pengalaman</a>
+      </div>
+    </div>
+
+    <aside class="ticket" aria-label="Ringkasan pelamar">
+      <span class="label">Ringkasan pelamar</span>
+      <dl>
+        <div class="row"><dt>Posisi</dt><dd>Cook / Crew Dapur</dd></div>
+        <div class="row"><dt>Pengalaman</dt><dd>Catering, 2022–2024</dd></div>
+        <div class="row"><dt>Pendidikan</dt><dd>S1 Teknik Informatika, IPK 3,54</dd></div>
+        <div class="row"><dt>Domisili</dt><dd>Tangerang Selatan</dd></div>
+      </dl>
+    </aside>
+  </div>
+
+  <section id="pengalaman">
+    <header><h2>Pengalaman kerja</h2><span class="label">Freelance</span></header>
+    <article class="job">
+      <div class="when">Feb 2022 – Sep 2024</div>
+      <div>
+        <h3>Freelance Catering Crew</h3>
+        <p class="where">Depot Kambing Guling Purbaya, Tangerang Selatan</p>
+        <ul>
+          <li>Membantu persiapan bahan makanan dan kebutuhan operasional katering sebelum acara.</li>
+          <li>Membantu pengolahan dan penyajian kambing guling, sate ayam/kambing, bakso malang, dan ice cream.</li>
+          <li>Menyiapkan peralatan makan dan perlengkapan katering.</li>
+          <li>Menjaga kebersihan area kerja dan peralatan selama acara berlangsung.</li>
+          <li>Membantu melayani makanan untuk pelanggan dan tamu selama acara.</li>
+          <li>Bekerja sama dengan tim agar kegiatan katering berjalan lancar.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="menu">
+    <header><h2>Menu yang pernah saya tangani</h2><span class="label">Depot Kambing Guling Purbaya</span></header>
+    <div class="board">
+      <h3>Pengolahan dan penyajian</h3>
+      <ul>
+        <li><span class="name">Kambing guling</span><span class="dots"></span><span class="kind">Daging</span></li>
+        <li><span class="name">Sate ayam / kambing</span><span class="dots"></span><span class="kind">Daging</span></li>
+        <li><span class="name">Bakso malang</span><span class="dots"></span><span class="kind">Berkuah</span></li>
+        <li><span class="name">Ice cream</span><span class="dots"></span><span class="kind">Penutup</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="keahlian">
+    <header><h2>Keterampilan</h2><span class="label">Teknis dan sikap kerja</span></header>
+    <div class="skills-grid">
+      <div>
+        <h3>Teknis</h3>
+        <ul class="skills">
+          <li>Persiapan bahan makanan</li>
+          <li>Teknik dasar memasak</li>
+          <li>Penanganan bahan makanan</li>
+          <li>Penyajian hidangan</li>
+          <li>Kebersihan dapur</li>
+          <li>Operasional dapur</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Sikap kerja</h3>
+        <ul class="skills">
+          <li>Kerja sama tim</li>
+          <li>Komunikasi</li>
+          <li>Manajemen waktu</li>
+          <li>Ketelitian</li>
+          <li>Kemampuan beradaptasi</li>
+          <li>Tanggung jawab</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="pendidikan">
+    <header><h2>Pendidikan</h2><span class="label">Lulusan 2026</span></header>
+    <article class="edu">
+      <div class="when">Jul 2022 – Jul 2026</div>
+      <div>
+        <h3>S1 Teknik Informatika</h3>
+        <p class="where">Universitas Pamulang · IPK 3,54 / 4,00</p>
+        <ul>
+          <li>Mempelajari dasar pemrograman, analisis sistem, pengolahan data, dan pengembangan aplikasi.</li>
+          <li>Melatih berpikir logis, memecahkan masalah, dan bekerja teliti lewat proyek akademik.</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="kontak">
+    <header><h2>Kontak</h2><span class="label">Tangerang Selatan, Indonesia</span></header>
+    <div class="contact">
+      <div class="copy-row"><span class="k">WhatsApp</span><span class="v" id="v-wa">+62 857 6390 6378</span><button type="button" data-copy="v-wa">Salin</button></div>
+      <div class="copy-row"><span class="k">Email</span><span class="v" id="v-mail">suliwayudhaa@gmail.com</span><button type="button" data-copy="v-mail">Salin</button></div>
+    </div>
+    <p class="foot">Terima kasih sudah meluangkan waktu melihat portofolio saya.</p>
+  </section>
+
+</div>
+
+<script>
+document.querySelectorAll('[data-copy]').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    var el = document.getElementById(btn.getAttribute('data-copy'));
+    var text = el.textContent.trim();
+    function done() {
+      btn.textContent = 'Tersalin';
+      setTimeout(function () { btn.textContent = 'Salin'; }, 1500);
+    }
+    function fallback() {
+      var r = document.createRange();
+      r.selectNodeContents(el);
+      var s = window.getSelection();
+      s.removeAllRanges();
+      s.addRange(r);
+    }
+    try {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } catch (e) {
+      fallback();
+    }
+  });
+});
+</script>
+
+</body></html>
